@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.6.2/dist/antd.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ant-design-vue@1.6.2/dist/antd.css"
+    />
+    <title>添加数据</title>
+  </head>
+  <body>
+    <div id="app">
+      <template>
+        <div style="background: #ececec; padding: 9.89%;">
+          <a-card
+            title="添加数据"
+            :bordered="false"
+            style="width: 30%; margin-left: 35%;"
+          >
+            <template>
+              <a-model>
+                <form method="post" action="adds">
+                  <template>
+                    <a-input
+                      type="text"
+                      name="_name"
+                      placeholder="姓名"
+                      style="width: 100%;"
+                    />
+                  </template>
+                  <div style="margin: 24px 0;"></div>
+                  <template>
+                    <a-input
+                      type="text"
+                      name="_class"
+                      placeholder="班级"
+                      style="width: 100%;"
+                    />
+                  </template>
+                  <div style="margin: 24px 0;"></div>
+                  <template>
+                    <a-input
+                      type="text"
+                      name="_number"
+                      placeholder="号数"
+                      style="width: 100%;"
+                    />
+                  </template>
+                  <div style="margin: 24px 0;"></div>
+                  <template>
+                    <a-input
+                      type="text"
+                      name="_score"
+                      placeholder="成绩"
+                      style="width: 100%;"
+                    />
+                  </template>
+                  <div style="margin: 24px 0;"></div>
+                  <template>
+                    <a-input type="submit" value="提交" style="width: 100%;" />
+                  </template>
+                  <div style="margin: 24px 0;"></div>
+                  <a-button
+                    style="width: 100%;"
+                    type="primary"
+                    onclick="window.location.href='displayData'"
+                  >
+                    查询数据
+                  </a-button>
+                </form>
+              </a-model>
+            </template>
+          </a-card>
+        </div>
+      </template>
+    </div>
+    <script>
+      const app = new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>

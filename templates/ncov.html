@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.6.2/dist/antd.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ant-design-vue@1.6.2/dist/antd.css"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>TEST</title>
+  </head>
+  <body>
+    <div id="app">
+      <div style="text-align: center; font-size: 30px;">
+        成 绩 查 询
+      </div>
+      <div style="position: absolute; top: 15%; width: 100%;">
+        <a-card>
+          <a-table
+            :columns="columns"
+            :data-source="provlist"
+            :row-key="record => record.name"
+            :pagination="false"
+            style="text-align: center; margin: 0 auto;"
+          >
+          </a-table>
+        </a-card>
+      </div>
+    </div>
+    <script>
+      const columns = [
+        {
+          title: "姓名",
+          key: "name",
+          dataIndex: "name",
+          width: "25%",
+        },
+        {
+          title: "班级",
+          key: "class",
+          dataIndex: "class",
+          width: "25%",
+        },
+        {
+          title: "号数",
+          key: "number",
+          dataIndex: "number",
+          width: "25%",
+        },
+        {
+          title: "成绩",
+          key: "score",
+          dataIndex: "score",
+          width: "25%",
+          sorter: (a, b) => a.score - b.score,
+        },
+      ];
+    </script>
+
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            durl: "/queryData",
+            provlist: [],
+            columns,
+            visible: false,
+            confirmLoading: false,
+          };
+        },
+        methods: {
+          getdb: function () {
+            let _this = this;
+            axios.get(_this.durl).then(function (response) {
+              let data = response.data;
+              _this.provlist = data;
+            });
+          },
+          showModal() {
+            this.visible = true;
+          },
+          handleOk(e) {
+            this.confirmLoading = true;
+            setTimeout(() => {
+              this.visible = false;
+              this.confirmLoading = false;
+            }, 2000);
+          },
+          handleCancel(e) {
+            console.log("Clicked cancel button");
+            this.visible = false;
+          },
+        },
+        mounted() {
+          this.getdb();
+        },
+      });
+    </script>
+  </body>
+</html>

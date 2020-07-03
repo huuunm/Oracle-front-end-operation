@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.6.2/dist/antd.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ant-design-vue@1.6.2/dist/antd.css"
+    />
+    <title>主页</title>
+  </head>
+  <body>
+    <div id="app">
+      <template>
+        <a-layout>
+          <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
+            <h2 style="text-align: center; color: azure;font-size: 20px;">
+              功 能 页
+            </h2>
+        </a-layout>
+      </template>
+      <a-button
+        style="position: absolute; left: 2%; top: 10%;"
+        type="primary"
+        onclick="window.location.href='displayData'"
+      >
+        查询数据
+      </a-button>
+      <a-button
+        style="position: absolute; left: 2%; top: 15%;"
+        type="primary"
+        onclick="window.location.href='addData'"
+      >
+        添加数据
+      </a-button>
+      <a-button
+        style="position: absolute; left: 2%; top: 20%;"
+        type="primary"
+        onclick="window.location.href='change'"
+      >
+        修改数据
+      </a-button>
+      <a-button
+        style="position: absolute; left: 2%; top: 25%;"
+        type="primary"
+        onclick="window.location.href='createTable'"
+      >
+        新建数据库
+      </a-button>
+      <a-button
+        style="position: absolute; left: 2%; top: 30%;"
+        type="primary"
+        onclick="window.location.href='emptyTable'"
+        >
+        清空数据
+      </a-button>
+      <a-button
+        style="position: absolute; left: 2%; top: 35%;"
+        type="primary"
+        onclick="window.location.href='delete'"
+        >
+        删除数据
+      </a-button>
+
+      <!-- <a :href="createUrl" style="text-align: center;">新建数据库</a><br /> -->
+      <!-- <a :href="addUrl" style="text-align: center;">增加一条数据</a><br /> -->
+      <!-- <a :href="displayUrl" style="text-align: center;">查询数据</a> -->
+    </div>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            // displayUrl: "http://127.0.0.1:5000/displayData",
+            // addUrl: "http://127.0.0.1:5000/addData",
+            // createUrl: "http://127.0.0.1:5000/createTable",
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
